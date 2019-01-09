@@ -1,0 +1,14 @@
+@import "fonts";
+@import "variables";
+@import "kitten";
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 0 auto;
+}
