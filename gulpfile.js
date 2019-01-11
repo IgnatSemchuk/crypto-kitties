@@ -10,6 +10,7 @@ const imagemin      = require('gulp-imagemin');
 const clean         = require('gulp-clean');
 const runSequence   = require('run-sequence');
 const notify        = require("gulp-notify");
+const deploy        = require('gulp-gh-pages');
 
 const srcDir = 'src'
 const distDir = 'dist';
@@ -55,6 +56,13 @@ gulp.task('js', () => {
 
 gulp.task('build', (cb) => {
     runSequence('cleanDist', ['images', 'js', 'styles', 'fonts', 'html'], cb);
+});
+
+gulp.task('deploy', () => {
+    gulp.src("./dist/**/*")
+        .pipe(deploy({
+            force: true
+            }))
 });
 
 gulp.task('watch', function() {
