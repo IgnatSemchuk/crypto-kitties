@@ -58,11 +58,9 @@ gulp.task('build', (cb) => {
     runSequence('cleanDist', ['images', 'js', 'styles', 'fonts', 'html'], cb);
 });
 
-gulp.task('deploy', () => {
+gulp.task('deploy', ['build'], () => {
     gulp.src("./dist/**/*")
-        .pipe(deploy({
-            force: true
-            }))
+        .pipe(deploy())
 });
 
 gulp.task('watch', function() {
