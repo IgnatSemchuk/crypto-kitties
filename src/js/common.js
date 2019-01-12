@@ -1,25 +1,27 @@
 'use strict';
 
-const url = 'https://ma-cats-api.herokuapp.com/api/cats?page=1&per_page=12';
+const timerLoader = setTimeout(() => {
+    document.querySelector('.loader').classList.toggle('loader_active');
+}, 3000);
 
-setTimeout(() => {
-    fetch(url)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        let catsList = getKittenList(data.cats);
-        console.dir(catsList);
-        document.querySelector('.wrapper').innerHTML = catsList;
-    })
-    .catch( alert );
-}, 3000)
+getKittens('https://ma-cats-api.herokuapp.com/api/cats?page=20&per_page=12')
+    .then(function(catsObject) {
+         clearTimeout(timerLoader);
+         document.querySelector('.wrapper').innerHTML = renderKittenList(catsObject.cats);
+    });
 
-function getKittenList(catsList) {
-    return catsList.map(getKitten).join('');
+function getKittens(url) {
+    return fetch(url)
+        .then(function(response) {
+            return response.json();
+        })
 }
 
-function getKitten(cat) {
+function renderKittenList(catsList) {
+    return catsList.map( renderKitten ).join('');
+}
+
+function renderKitten(cat) {
     return `
         <div class="kitty-card kitty-card_margin_small">
             <div class="kitty-card__main kitty-card__main_red">
@@ -32,5 +34,16 @@ function getKitten(cat) {
             <div class="kitty-card__category">${cat.category}</div>
             <div class="kitty-card__price">price: ${cat.price}</div>
         </div>
-        `
+        `;
+}
+
+function hashCode(stringToken) {
+    let hash = 0, i, chr;
+    if (stringToken.length === 0) return hash;
+    for (i = 0; i < stringToken.length; i++) {
+        chr   = stringToken.charCodeAt(i);
+        hash  = ((hash << 5) - hash) + chr;
+        hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
 }

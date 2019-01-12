@@ -17,26 +17,24 @@
 
 .loader {
     position: fixed;
-    top: 0;
-    left: 0;
-
-    display: flex;
+    display: none;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 
-    overflow:hidden;
-    width:100vw;
-    height:100vh;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+
+    &_active {
+        display: flex;
+        transform: scale(1);
+    }
+
+    &__image {
+        display: block;
+        width: 10rem;
+        height: 10rem;
+        z-index: -1001;
+    }
 }
-
-.loader-img {
-    display:block;
-    width:10.2rem;
-    height:10.2rem;
-    background-image: url("../images/loader.gif");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50%;
-        z-index:1001
-}
-
