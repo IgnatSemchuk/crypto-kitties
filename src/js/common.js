@@ -1,8 +1,9 @@
 'use strict';
 
-const url = 'https://ma-cats-api.herokuapp.com/api/cats?page=2&per_page=12';
+const url = 'https://ma-cats-api.herokuapp.com/api/cats?page=1&per_page=12';
 
-fetch(url)
+setTimeout(() => {
+    fetch(url)
     .then(function(response) {
         return response.json();
     })
@@ -12,7 +13,7 @@ fetch(url)
         document.querySelector('.wrapper').innerHTML = catsList;
     })
     .catch( alert );
-
+}, 3000)
 
 function getKittenList(catsList) {
     return catsList.map(getKitten).join('');
