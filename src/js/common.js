@@ -1,13 +1,9 @@
 'use strict';
 
-const timerLoader = setTimeout(() => {
-    document.querySelector('.loader').classList.toggle('loader_active');
-}, 3000);
-
-getKittens('https://ma-cats-api.herokuapp.com/api/cats?page=20&per_page=12')
+getKittens('https://ma-cats-api.herokuapp.com/api/cats?page=1&per_page=12')
     .then(function(catsObject) {
-         clearTimeout(timerLoader);
-         document.querySelector('.wrapper').innerHTML = renderKittenList(catsObject.cats);
+        document.querySelector('.wrapper').insertAdjacentHTML('afterbegin', renderKittenList(catsObject.cats));
+        setTimeout(() => document.querySelector('.loader').style = 'display: none;', 1000);
     });
 
 function getKittens(url) {

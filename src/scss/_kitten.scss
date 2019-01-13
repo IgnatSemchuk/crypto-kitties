@@ -1,17 +1,17 @@
-    .name {
-        border-radius: 30px;
-        color: $color-name;
-        font: $font-name;
+.name {
+    border-radius: 30px;
+    color: $color-name;
+    font: $font-name;
 
-        &_bg_white {
-            background-color: white;
-        }
-
-        &_size_medium {
-            padding: 10px 30px;
-            border-radius: 30px;
-        }
+    &_bg_white {
+        background-color: white;
     }
+
+    &_size_medium {
+        padding: 10px 30px;
+        border-radius: 30px;
+    }
+}
 
 
 .kitty-card {

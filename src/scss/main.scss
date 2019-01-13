@@ -17,24 +17,27 @@
 
 .loader {
     position: fixed;
-    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height:100vh;
+
+    display: flex;
     justify-content: center;
     align-items: center;
 
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
+    z-index: 1000;
 
-    &_active {
-        display: flex;
-        transform: scale(1);
-    }
+    background-color: #fff;
 
     &__image {
         display: block;
-        width: 10rem;
-        height: 10rem;
-        z-index: -1001;
+        width: 5rem;
+        height: 5rem;
+
+        background-image: url("../images/loader.gif");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50%
     }
 }
