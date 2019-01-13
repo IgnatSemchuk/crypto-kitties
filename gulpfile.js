@@ -28,9 +28,15 @@ gulp.task('styles', () => {
 });
 
 gulp.task('images', () =>
-    gulp.src(`${srcDir}/img/**/*`)
+    gulp.src(`${srcDir}/images/**/*`)
         .pipe(imagemin())
-        .pipe(gulp.dest(`${distDir}/img`))
+        .pipe(gulp.dest(`${distDir}/images`))
+);
+
+gulp.task('libs', () =>
+    gulp.src(`${srcDir}/js/libs/**/*`)
+        .pipe(imagemin())
+        .pipe(gulp.dest(`${distDir}/js/libs/`))
 );
 
 gulp.task('fonts', () =>
@@ -48,19 +54,14 @@ gulp.task('cleanDist', () =>
         .pipe(clean({force: true}))
 );
 
-gulp.task('js', () => {
-    gulp.src(`${srcDir}/**/*.js`)
+gulp.task('js', ['libs'], () => {
+    gulp.src(`${srcDir}/js/*.js`)
         .pipe(concat('script.js'))
         .pipe(gulp.dest(`${distDir}/js`))
 });
 
 gulp.task('build', (cb) => {
     runSequence('cleanDist', ['images', 'js', 'styles', 'fonts', 'html'], cb);
-});
-
-gulp.task('deploy', ['build'], () => {
-    gulp.src("./dist/**/*")
-        .pipe(deploy())
 });
 
 gulp.task('watch', function() {
@@ -71,7 +72,7 @@ gulp.task('watch', function() {
     });
     gulp.watch(`${srcDir}/*.html`, ['html', 'reloadBrowser']);
     gulp.watch(`${srcDir}/**/*.scss`, ['styles', 'reloadBrowser']);
-    gulp.watch(['libs/**/*.js', `${srcDir}/**/*.js`], ['js', 'reloadBrowser']);
+    gulp.watch(`${srcDir}/**/*`, ['js', 'reloadBrowser']);
     gulp.watch(`${srcDir}/img/**/*`), ['images', 'reloadBrowser'];
     gulp.watch(`${srcDir}/fonts/**/*`), ['fonts', 'reloadBrowser'];
 });
