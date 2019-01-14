@@ -1,5 +1,5 @@
 # Crypto-kitties store
-The store where you can search and buy kittens. The reference project is - https://www.cryptokitties.co/search
+The store where you can search and buy kittens. The reference project is - https://www.cryptokitties.co/search  
 To look [demo][1]
 
 ## How to run?
@@ -8,7 +8,7 @@ To look [demo][1]
 3. Run the project with a gulp: `npx gulp`
 
 ## Technology
-- used md5 hash [library][2](https://github.com/blueimp/JavaScript-MD5)
+- used md5 hash [library][2]
 - BEM notation
 - used [API][3] which returns kittens json
 
