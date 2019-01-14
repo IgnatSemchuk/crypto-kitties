@@ -12,5 +12,5 @@ The store where you can search and buy kittens. The reference project is - https
 - BEM notation
 - used [API][1] which returns kittens json 
 
-[1]: https://ignatsemchuk.github.io/crypto-kitties/src/
+[1]: https://ignatsemchuk.github.io/crypto-kitties/
 [2]: https://github.com/MateAcademy-FE-study/cats_api
