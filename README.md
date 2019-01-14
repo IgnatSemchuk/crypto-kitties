@@ -1,5 +1,5 @@
 # Crypto-kitties store
-The store where you can search and buy kittens. To look [demo][1]
+The store where you can search and buy kittens. To look [demo][1]  
 The inspiring project is - www.cryptokitties.co/search 
 
 ## How to run?
