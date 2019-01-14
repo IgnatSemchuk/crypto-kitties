@@ -10,7 +10,7 @@ const imagemin      = require('gulp-imagemin');
 const clean         = require('gulp-clean');
 const runSequence   = require('run-sequence');
 const notify        = require("gulp-notify");
-const deploy        = require('gulp-gh-pages');
+const ghpages       = require('gh-pages');
 
 const srcDir = 'src'
 const distDir = 'dist';
@@ -35,7 +35,6 @@ gulp.task('images', () =>
 
 gulp.task('libs', () =>
     gulp.src(`${srcDir}/js/libs/**/*`)
-        .pipe(imagemin())
         .pipe(gulp.dest(`${distDir}/js/libs/`))
 );
 
@@ -71,8 +70,8 @@ gulp.task('watch', function() {
         }
     });
     gulp.watch(`${srcDir}/*.html`, ['html', 'reloadBrowser']);
-    gulp.watch(`${srcDir}/**/*.scss`, ['styles', 'reloadBrowser']);
-    gulp.watch(`${srcDir}/**/*`, ['js', 'reloadBrowser']);
+    gulp.watch(`${srcDir}/scss/**/*.scss`, ['styles', 'reloadBrowser']);
+    gulp.watch(`${srcDir}/js/**/*`, ['js', 'reloadBrowser']);
     gulp.watch(`${srcDir}/img/**/*`), ['images', 'reloadBrowser'];
     gulp.watch(`${srcDir}/fonts/**/*`), ['fonts', 'reloadBrowser'];
 });
