@@ -1,6 +1,6 @@
 # Crypto-kitties store
-The store where you can search and buy kittens. The reference project is - https://www.cryptokitties.co/search  
-To look [demo][1]
+The store where you can search and buy kittens. To look [demo][1]
+The inspiring project is - www.cryptokitties.co/search 
 
 ## How to run?
 1. Run this command: `git clone https://github.com/IgnatSemchuk/crypto-kitties.git`
