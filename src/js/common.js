@@ -1,9 +1,9 @@
 'use strict';
 
-getKittens('https://ma-cats-api.herokuapp.com/api/cats?page=3&per_page=12')
+getKittens('https://ma-cats-api.herokuapp.com/api/cats?page=1&per_page=12')
     .then(function(catsObject) {
         document.querySelector('.wrapper').insertAdjacentHTML('afterbegin', renderKittenList(catsObject.cats));
-        setTimeout(() => document.querySelector('.loader').style = 'display: none;', 1000);
+        setTimeout(() => document.querySelector('.loader').style = 'display: none;', 500);
     });
 
 function getKittens(url) {
@@ -14,12 +14,13 @@ function getKittens(url) {
 }
 
 function renderKittenList(catsList) {
-    return catsList.map(cat => renderKitten(cat)).join('');
+    return catsList.map((cat, i) => renderKitten(cat, i)).join('');
 }
 
-function renderKitten({id, name, img_url, category, price}) {
+function renderKitten({id, name, img_url, category, price}, indexCat) {
+    let index = 0;
     return `
-        <div class="kitty-card kitty-card_margin_small">
+        <div class="kitty-card kitty-card_margin_small" style="animation-delay: ${.5 + indexCat * .05}s">
             <div class="kitty-card__header" style="background-color: ${renderColorByHash(name, id)};">
                 <img class="kitty-card__image" src="${img_url}" alt="${name}">
                 <div class="kitty-card__name">

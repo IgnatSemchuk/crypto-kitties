@@ -15,8 +15,11 @@
 
 
 .kitty-card {
+    position: relative;
     width: 230px;
     height: 380px;
+    top: 50px;
+    opacity: 0;
 
     &_margin_small {
         margin: 20px auto;
@@ -63,5 +66,15 @@
     &__category,
     &__price {
         border-top: 3px dotted grey;
+    }
+
+    animation: fade-in-up .5s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+
+    to {
+        top: 0;
+        opacity: 1;
     }
 }
