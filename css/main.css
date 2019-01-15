@@ -142,10 +142,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -156,6 +153,13 @@
           align-items: center;
   z-index: 1000;
   background-color: #fff;
+}
+
+.loader_active {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .loader__image {
