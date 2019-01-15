@@ -3,7 +3,7 @@
 getKittens('https://ma-cats-api.herokuapp.com/api/cats?page=1&per_page=12')
     .then(function(catsObject) {
         document.querySelector('.wrapper').insertAdjacentHTML('afterbegin', renderKittenList(catsObject.cats));
-        setTimeout(() => document.querySelector('.loader').style = 'display: none;', 500);
+        setTimeout(() => document.querySelector('.loader').classList.toggle('loader_active'), 500);
     });
 
 function getKittens(url) {

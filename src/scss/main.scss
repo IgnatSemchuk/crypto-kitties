@@ -22,13 +22,17 @@
     width: 100vw;
     height:100vh;
 
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 
     z-index: 1000;
 
     background-color: #fff;
+
+    &_active {
+        display: flex;
+    }
 
     &__image {
         display: block;
