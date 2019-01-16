@@ -1,6 +1,6 @@
 'use strict';
 
-getKittens('https://ma-cats-api.herokuapp.com/api/cats?page=5&per_page=16')
+getKittens('https://ma-cats-api.herokuapp.com/api/cats?page=1&per_page=12')
     .then(function(catsObject) {
         document.querySelector('.wrapper').insertAdjacentHTML('afterbegin', renderKittenList(catsObject.cats));
         setTimeout(() => document.querySelector('.loader').classList.toggle('loader_active'), 500);
@@ -23,7 +23,7 @@ function renderKitten(kitten, indexCat) {
             <div class="kitty-card__header" style="background-color: ${getKittenCardCollor(kitten)}">
                 <img class="kitty-card__image" src="${kitten.img_url}" alt="${kitten.name}">
                 <div class="kitty-card__name">
-                    <span class="name name_size_medium name_bg_white">${kitten.name}</span>
+                    <span class="name">${kitten.name}</span>
                 </div>
             </div>
             <div class="kitty-card__id"># ${kitten.id}</div>

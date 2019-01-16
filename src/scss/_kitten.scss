@@ -1,16 +1,10 @@
 .name {
     border-radius: 30px;
+    padding: 10px 30px;
+
     color: $color-name;
     font: $font-name;
-
-    &_bg_white {
-        background-color: white;
-    }
-
-    &_size_medium {
-        padding: 10px 30px;
-        border-radius: 30px;
-    }
+    background-color: white;
 }
 
 
